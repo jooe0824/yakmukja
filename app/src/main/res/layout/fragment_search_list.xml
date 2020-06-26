@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#FDFDFD"
+    tools:context="org.techtown.mediclock.Mainmenu" >
+
+    <EditText
+        android:id="@+id/editText4"
+        android:layout_width="match_parent"
+        android:layout_height="117dp"
+        android:layout_weight="1"
+        android:ems="10"
+        android:gravity="center"
+        android:inputType="textPersonName"
+        android:text="검색 결과"
+        android:textSize="30sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/result_btn1"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:text="기본정보"
+            android:textSize="30sp" />
+
+        <Button
+            android:id="@+id/result_btn2"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:text="효능 / 효과"
+            android:textSize="30sp" />
+
+        <Button
+            android:id="@+id/result_btn3"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:text="용법 /용량"
+            android:textSize="30sp" />
+
+        <Button
+            android:id="@+id/result_btn4"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:text="주의사항"
+            android:textSize="30sp" />
+
+        <Button
+            android:id="@+id/result_btn5"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:text="제품모양"
+            android:textSize="30sp" />
+
+        <Button
+            android:id="@+id/result_btn6"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:text="저장방법"
+            android:textSize="30sp" />
+
+        <Button
+            android:id="@+id/result_btn7"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:text="유효기간"
+            android:textSize="30sp" />
+
+        <Button
+            android:id="@+id/result_btn8"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:text="원료 및 성분"
+            android:textSize="30sp" />
+    </LinearLayout>
+</LinearLayout>
