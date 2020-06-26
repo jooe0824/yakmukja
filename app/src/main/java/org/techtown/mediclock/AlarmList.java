@@ -91,7 +91,8 @@ public class AlarmList extends AppCompatActivity {
         }
         alarmListAdapter = new AlarmListAdapter(alarmArrayList2);
         alarm_recyclerView.setAdapter(alarmListAdapter);
-
+        alarmArrayList2 = new ArrayList<>();
+        
         DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(alarm_recyclerView.getContext(),
                 alarm_LinearLayoutManager.getOrientation());
         alarm_recyclerView.addItemDecoration(dividerItemDecoration);
