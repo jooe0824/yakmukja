@@ -17,6 +17,14 @@
         android:text="텍스트 검색"
         android:textSize="50sp" />
 
+    <EditText
+        android:id="@+id/editText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="약 이름/ 바코드 입력"
+        android:inputType="textPersonName" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerview_medlist"
         android:layout_width="match_parent"

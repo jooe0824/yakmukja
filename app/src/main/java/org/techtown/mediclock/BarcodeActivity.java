@@ -39,9 +39,9 @@ public class BarcodeActivity extends AppCompatActivity {
             Log.d("onActivityResult", "onActivityResult: ." + re);
 
             // 여기서 약 정보 리스트로 가게하기
-            //Intent tomedinfo  = new Intent(this, MedInfoActivity.class);
-            //tomedinfo.putExtra("PRDLST_STDR_CODE", re);
-            //startActivity(tomedinfo);
+            Intent barmedinfo  = new Intent(this, TextresultActivity.class);
+            barmedinfo.putExtra("BAR_CODE_info", re);
+            startActivity(barmedinfo);
             finish();
         }else {
             finish();

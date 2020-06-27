@@ -6,10 +6,13 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.inputmethod.EditorInfo;
+import android.widget.EditText;
 import android.widget.SearchView;
 import android.widget.Toast;
 
@@ -23,15 +26,15 @@ import java.io.InputStreamReader;
 import java.net.URL;
 import java.util.ArrayList;
 
-public class TextresultActivity extends AppCompatActivity {
+public class TextresultActivity extends AppCompatActivity implements RecyclerviewAdapter.onItemListener, TextWatcher {
 
     public String requestUrl;
     Recent bus = null;
     public String key="BZAkHyL1OvsaKk4INUgYd1ra39ts5cl%2BDojvvOH%2BQkW3FCIifva%2FTa5ZTKvrIt03W97NKmFMZH4Oq%2B6jIwy5bA%3D%3D";
     private RecyclerviewAdapter adapter;
     ArrayList<Recent> mList;
-    XmlPullParser xpp;
-    String data;
+    public String barcodeinfo;
+    EditText editText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,41 +43,33 @@ public class TextresultActivity extends AppCompatActivity {
 
         MyAsyncTask myAsyncTask = new MyAsyncTask();
         myAsyncTask.execute();
+
+        editText = (EditText) findViewById(R.id.editText);
+        if(getIntent().getStringExtra("BAR_CODE_info") != null) {
+            barcodeinfo = getIntent().getStringExtra("BAR_CODE_info");
+            Log.e("barcodeinfo", barcodeinfo);
+            editText.setText(barcodeinfo);
+        }
+        editText.addTextChangedListener(this);
     }
 
-//    @Override
-//    public boolean onCreateOptionsMenu(Menu menu) {
-//        getMenuInflater().inflate(R.menu.menu, menu);
-//        MenuItem searchItem = menu.findItem(R.id.action_search);
-//        SearchView searchView = (SearchView) searchItem.getActionView();
-//        searchView.setImeOptions(EditorInfo.IME_ACTION_DONE);
-//        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-//            @Override
-//            public boolean onQueryTextSubmit(String query) {
-//                adapter.getFilter().filter(query);
-//                return false;
-//            }
-//
-//            @Override
-//            public boolean onQueryTextChange(String newText) {
-//                Log.e("NEWTEXT",newText);
-//                adapter.getFilter().filter(newText);
-//                return false;
-//            }
-//        });
-//        return super.onCreateOptionsMenu(menu);
-//    }
-//
-//    @Override
-//    public boolean onOptionsItemSelected(MenuItem item) {
-//        int id = item.getItemId();
-//
-//        //noinspection SimplifiableIfStatement
-//        if (id == R.id.action_search) {
-//            return true;
-//        }
-//        return super.onOptionsItemSelected(item);
-//    }
+
+    @Override
+    public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+        adapter.getFilter().filter(s);
+    }
+
+    @Override
+    public void onTextChanged(CharSequence s, int start, int before, int count) {
+        adapter.getFilter().filter(s);
+
+    }
+
+    @Override
+    public void afterTextChanged(Editable s) {
+        String filterText = s.toString() ;
+        adapter.getFilter().filter(filterText);
+    }
 
     //@Override
     public void onItemClicked(int position) {

@@ -138,6 +138,9 @@ public class RecyclerviewAdapter extends RecyclerView.Adapter<RecyclerviewAdapte
                     if (item.getITEM_NAME().contains(charString.trim())) {//toLowerCase()., .toLowerCase()
                         filteringList.add(item);
                     }
+                    if(item.getBAR_CODE().contains(charString.trim())){
+                        filteringList.add(item);
+                    }
                 }
                 Log.e("FilteringlistLength", String.valueOf(filteringList.size()));
                 filterList = filteringList;
