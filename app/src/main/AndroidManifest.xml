@@ -20,7 +20,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".TextresultActivity"></activity>
+        <activity android:name=".EffectinfoActivity"></activity>
+        <activity android:name=".BasicinfoActivity" />
+        <activity android:name=".TextresultActivity" />
         <activity android:name=".Mainmenu">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
