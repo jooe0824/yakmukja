@@ -48,8 +48,8 @@ public class Search_List extends AppCompatActivity {
         TextView textView = (TextView)findViewById(R.id.item_name);
         textView.setText(ITEM_NAME);
 
-        String ud = getIntent().getStringExtra("UD_DOC_DATA");
-        Log.d("ud", ud);
+//        String ud = getIntent().getStringExtra("UD_DOC_DATA");
+//        Log.d("ud", ud);
 
         Button button_search = findViewById(R.id.result_btn1);
         button_search.setOnClickListener(new View.OnClickListener() {
