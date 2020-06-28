@@ -31,7 +31,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@color/zxing_transparent"
-        android:text="@string/zxing_msg_default_status"
+        android:text="한 뼘 정도 거리를 두고 비춰주세요"
         android:textColor="@color/zxing_status_text" />
 </LinearLayout>
 </RelativeLayout>
