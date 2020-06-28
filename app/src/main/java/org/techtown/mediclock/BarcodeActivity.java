@@ -39,11 +39,12 @@ public class BarcodeActivity extends AppCompatActivity {
             IntentResult scanResult = IntentIntegrator.parseActivityResult(requestCode, resultCode, intent);
             String re = scanResult.getContents();
             //String message = re;
+            String substr = re.substring(0, 10);
             Log.d("onActivityResult", "onActivityResult: ." + re);
 
             // 여기서 약 정보 리스트로 가게하기
             Intent barmedinfo  = new Intent(this, TextresultActivity.class);
-            barmedinfo.putExtra("BAR_CODE_info", re);
+            barmedinfo.putExtra("BAR_CODE_info", substr);
             startActivity(barmedinfo);
             finish();
         }else {
