@@ -22,6 +22,9 @@ public class BarcodeActivity extends AppCompatActivity {
         IntentIntegrator integrator = new IntentIntegrator(this);
         integrator.setCaptureActivity(CustomScannerActivity.class);
         integrator.initiateScan();
+
+        Toast myToast = Toast.makeText(this.getApplicationContext(),"한 뼘 정도 거리를 두고 비춰주세요", Toast.LENGTH_SHORT);
+        myToast.show();
     }
 
     protected void onResume(){

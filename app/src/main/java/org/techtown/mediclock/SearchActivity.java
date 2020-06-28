@@ -138,7 +138,7 @@ protected void onCreate(Bundle savedInstanceState) {
     button3.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            Intent intent_textsearch = new Intent(getApplicationContext(), Search_List.class); //일단 바로 검색결과 띄음
+            Intent intent_textsearch = new Intent(getApplicationContext(), TextresultActivity.class); //일단 바로 검색결과 띄음
             startActivity(intent_textsearch);
         }
     });

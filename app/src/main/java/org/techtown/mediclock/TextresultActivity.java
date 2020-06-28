@@ -49,6 +49,8 @@ public class TextresultActivity extends AppCompatActivity implements Recyclervie
             barcodeinfo = getIntent().getStringExtra("BAR_CODE_info");
             Log.e("barcodeinfo", barcodeinfo);
             editText.setText(barcodeinfo);
+            Toast myToast = Toast.makeText(this.getApplicationContext(),"바코드가 입력되었습니다. 입력된 바코드에 아무 글자나 입력하고 지워주세요", Toast.LENGTH_SHORT);
+            myToast.show();
         }
         editText.addTextChangedListener(this);
     }
