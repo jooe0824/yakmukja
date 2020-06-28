@@ -46,6 +46,8 @@ import java.io.OutputStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import static org.techtown.mediclock.Mainmenu.getAppContext;
+
    /* ActionBar actionBar;
 
     @Override
@@ -146,6 +148,7 @@ import java.util.Date;
 
         private boolean ProgressFlag = false; // 프로그레스바 상태 플래그
 
+
         @Override
         protected void onCreate(Bundle savedInstanceState) {
 
@@ -180,6 +183,11 @@ import java.util.Date;
                 image = BitmapFactory.decodeResource(getResources(), R.drawable.sampledata); //샘플이미지파일
                 Test();
             }
+
+
+
+
+
         }
 
         @Override
@@ -410,10 +418,14 @@ import java.util.Date;
                 m_Tess.setImage(rotatedImage);
                 OCRresult = m_Tess.getUTF8Text();
 
+
+
                 Message message = Message.obtain();
                 message.what = ConstantDefine.RESULT_OCR;
                 message.obj = OCRresult;
                 m_messageHandler.sendMessage(message);
+
+
 
             }
         }
@@ -440,9 +452,21 @@ import java.util.Date;
                         long time = (m_end - m_start)/1000;
                         m_tvTime.setText("처리시간 : "+time+"초");
                         Toast.makeText(mContext,getResources().getString(R.string.CompleteMessage),Toast.LENGTH_SHORT).show();
+
+                        if(String.valueOf(msg.obj).length() < 10){
+                            Intent photextinfo = new Intent(mContext, TextresultActivity.class);
+                            photextinfo.putExtra("photext_info", String.valueOf(msg.obj));
+                            startActivity(photextinfo);
+                            Log.e("photext_info", String.valueOf(msg.obj));
+                        } else {
+                            Toast myToast = Toast.makeText(getAppContext(),"문자열이 너무 길어 사진 검색에 실패했습니다. 다시 사진을 찍어주세요.", Toast.LENGTH_SHORT);
+                            myToast.show();
+                        }
                         break;
                 }
             }
+
+
         }
         //endregion
 

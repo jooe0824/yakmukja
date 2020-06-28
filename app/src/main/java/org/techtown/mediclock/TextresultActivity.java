@@ -33,7 +33,7 @@ public class TextresultActivity extends AppCompatActivity implements Recyclervie
     public String key="BZAkHyL1OvsaKk4INUgYd1ra39ts5cl%2BDojvvOH%2BQkW3FCIifva%2FTa5ZTKvrIt03W97NKmFMZH4Oq%2B6jIwy5bA%3D%3D";
     private RecyclerviewAdapter adapter;
     ArrayList<Recent> mList;
-    public String barcodeinfo;
+    public String barcodeinfo, photextinfo;
     EditText editText;
 
     @Override
@@ -50,6 +50,13 @@ public class TextresultActivity extends AppCompatActivity implements Recyclervie
             Log.e("barcodeinfo", barcodeinfo);
             editText.setText(barcodeinfo);
             Toast myToast = Toast.makeText(this.getApplicationContext(),"바코드가 입력되었습니다. 입력된 바코드에 아무 글자나 입력하고 지워주세요", Toast.LENGTH_SHORT);
+            myToast.show();
+        }
+
+        if(getIntent().getStringExtra("photext_info") != null){
+            photextinfo = getIntent().getStringExtra("photext_info");
+            Log.e("photextinfo", photextinfo);
+            Toast myToast = Toast.makeText(this.getApplicationContext(),"사진 검색이 완료되었습니다. 입력창에 아무 글자나 입력하고 지워주세요", Toast.LENGTH_SHORT);
             myToast.show();
         }
         editText.addTextChangedListener(this);
@@ -134,7 +141,7 @@ public class TextresultActivity extends AppCompatActivity implements Recyclervie
 
         @Override
         protected String doInBackground(String... strings) {
-            requestUrl = "http://apis.data.go.kr/1471057/MdcinPrductPrmisnInfoService/getMdcinPrductItem?"+"pageNo=1&numOfRows=10&"+"ServiceKey=" + key;
+            requestUrl = "http://apis.data.go.kr/1471057/MdcinPrductPrmisnInfoService/getMdcinPrductItem?"+"pageNo=1257&numOfRows=10&"+"ServiceKey=" + key;
             try {
                 boolean b_ITEM_NAME = false;
                 boolean b_ENTP_NAME = false;
